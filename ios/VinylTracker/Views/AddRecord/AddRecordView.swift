@@ -195,7 +195,7 @@ struct AddRecordView: View {
             .alert("Record Added!", isPresented: $showSuccess) {
                 Button("OK") {}
             } message: {
-                Text(""\(vm.savedRecord?.title ?? "Record")" has been added to your collection.")
+                Text("\"\(vm.savedRecord?.title ?? "Record")\" has been added to your collection.")
             }
         }
     }
