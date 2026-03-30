@@ -1,0 +1,25 @@
+# Node
+backend/node_modules/
+backend/.env
+backend/*.log
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Xcode
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcworkspace/xcuserdata/
+ios/DerivedData/
+ios/build/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xccheckout
+*.moved-to-trash
+*.xcuserstate
+
+# Swift Package Manager
+ios/.build/
+ios/Package.resolved
