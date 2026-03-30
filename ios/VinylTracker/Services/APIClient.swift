@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 // MARK: - Errors
 
@@ -38,6 +39,8 @@ private struct Empty: Decodable {}
 final class APIClient: ObservableObject {
 
     static let shared = APIClient()
+
+    nonisolated let objectWillChange = ObservableObjectPublisher()
 
     /// Set this after Clerk/Auth0 delivers an access token.
     var authToken: String?

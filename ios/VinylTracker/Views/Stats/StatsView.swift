@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 // MARK: - ViewModel
 
@@ -33,6 +34,12 @@ final class StatsViewModel: ObservableObject {
 
     private func grouped(by keyPath: KeyPath<Record, String?>) -> [(label: String, count: Int)] {
         Dictionary(grouping: records.compactMap { $0[keyPath: keyPath] }, by: { $0 })
+            .map { (label: $0.key, count: $0.value.count) }
+            .sorted { $0.count > $1.count }
+    }
+
+    private func grouped(by keyPath: KeyPath<Record, String>) -> [(label: String, count: Int)] {
+        Dictionary(grouping: records.map { $0[keyPath: keyPath] }, by: { $0 })
             .map { (label: $0.key, count: $0.value.count) }
             .sorted { $0.count > $1.count }
     }
@@ -112,7 +119,7 @@ struct StatTile: View {
         VStack(spacing: 4) {
             Image(systemName: icon)
                 .font(.title3)
-                .foregroundStyle(.accent)
+                .foregroundStyle(Color.accentColor)
             Text(value)
                 .font(.title2.bold())
                 .monospacedDigit()
@@ -151,7 +158,7 @@ struct CountRow: View {
                     .frame(height: 4)
                     .overlay(alignment: .leading) {
                         Capsule()
-                            .foregroundStyle(.accent)
+                            .foregroundStyle(Color.accentColor)
                             .frame(width: geo.size.width * fraction, height: 4)
                     }
             }

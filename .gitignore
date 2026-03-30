@@ -23,3 +23,7 @@ ios/build/
 # Swift Package Manager
 ios/.build/
 ios/Package.resolved
+
+# Xcode workspace state (generated per-user)
+ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+ios/*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
